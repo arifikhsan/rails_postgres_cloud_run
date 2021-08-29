@@ -7,6 +7,6 @@ services:
     volumes:
       - .:/app
     environment:
-      - DATABASE_URL=postgres://udin:udin@10.128.0.2:5432/rails_postgres_cloud_run_production
+      - DATABASE_URL=postgres://udin:udin@35.209.48.223:5432/rails_postgres_cloud_run_production
 
 # "postgres://myuser:mypass@localhost/somedatabase"
