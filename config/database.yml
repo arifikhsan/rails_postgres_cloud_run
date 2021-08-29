@@ -89,4 +89,6 @@ test:
 #   password: <%= ENV['RAILS_POSTGRES_CLOUD_RUN_DATABASE_PASSWORD'] %>
 
 production:
+  adapter: postgresql
+  encoding: unicode
   url: <%= ENV['DATABASE_URL'] %>
