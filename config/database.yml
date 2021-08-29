@@ -17,6 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: db
+  username: postgres
+  password: password
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -79,8 +82,11 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: rails_postgres_cloud_run_production
+#   username: rails_postgres_cloud_run
+#   password: <%= ENV['RAILS_POSTGRES_CLOUD_RUN_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: rails_postgres_cloud_run_production
-  username: rails_postgres_cloud_run
-  password: <%= ENV['RAILS_POSTGRES_CLOUD_RUN_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
