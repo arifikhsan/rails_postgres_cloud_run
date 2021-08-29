@@ -1,24 +1,20 @@
-# README
+# Rails Cloud Run with Postgres
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Build development
 
-Things you may want to cover:
+```
+docker-compose up --build
+```
 
-* Ruby version
+## Build production
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose --file docker-compose.production.yml build
+```
+```
+docker tag rails_postgres_cloud_run_web arifikhsan/rails_postgres_cloud_run
+docker tag arifikhsan/rails_postgres_cloud_run gcr.io/arifikhsanudin/rails_postgres_cloud_run
+```
+```
+docker push gcr.io/arifikhsanudin/rails_postgres_cloud_run
+```
